@@ -5,6 +5,9 @@ import { useInventory } from '../context/InventoryContext';
 function SingleProduct() {
     const{productId}=useParams();
     const {inventory}=useInventory();
+    if (!productId) {
+      return <div>Loading...</div>;
+    }
     const product=inventory.find(item=>item.id===parseInt(productId))
   return (
     <div className='flex p-8 gap-8 text-xl'>

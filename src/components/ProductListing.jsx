@@ -9,6 +9,9 @@ function ProductListing() {
   const [selectedDepartment, setSelectedDepartment] = useState(departmentId);
   const [showLowStock, setShowLowStock] = useState(false);
   const [sortBy, setSortBy] = useState('');
+  if (!departmentId) {
+    return <div>Loading...</div>;
+  }
 
   useEffect(() => {
     let filteredData = [...inventory];
