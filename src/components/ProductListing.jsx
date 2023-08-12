@@ -9,9 +9,7 @@ function ProductListing() {
   const [selectedDepartment, setSelectedDepartment] = useState(departmentId);
   const [showLowStock, setShowLowStock] = useState(false);
   const [sortBy, setSortBy] = useState('');
-  if (!departmentId) {
-    return <div>Loading...</div>;
-  }
+  
 
   useEffect(() => {
     let filteredData = [...inventory];
@@ -34,7 +32,10 @@ function ProductListing() {
 
     setFilteredInventory(filteredData);
   }, [inventory, selectedDepartment, showLowStock, sortBy]);
-
+  
+  if (!departmentId) {
+    return <div>Loading...</div>;
+  }
   return (
     <div className='flex flex-col items-start gap-4 p-4'>
       <div className='flex gap-8 items-center'>
